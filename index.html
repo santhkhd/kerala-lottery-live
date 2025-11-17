@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kerala Lottery Results — Live</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Live Kerala lottery results pulled from Google Sheets. Search, browse and view detailed results." />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand">Kerala Lottery Live</h1>
+      <div class="header-actions">
+        <input id="search" type="search" placeholder="Search lottery name, draw or number..." aria-label="Search results">
+        <select id="filter-date">
+          <option value="latest">Latest first</option>
+          <option value="oldest">Oldest first</option>
+        </select>
+        <button id="refreshBtn" title="Refresh">⟳</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="grid" class="card-grid" aria-live="polite"></section>
+
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <div>Loading results…</div>
+    </div>
+
+    <div id="empty" class="empty" hidden>
+      No results found.
+    </div>
+  </main>
+
+  <!-- Detail view (single-page: toggles visible) -->
+  <aside id="detailView" class="detail-view" hidden>
+    <button id="closeDetail" class="close-btn" aria-label="Close result">← Back</button>
+    <div class="detail-content">
+      <h2 id="detailLottery"></h2>
+      <div class="meta">
+        <span id="detailDate"></span>
+        <span id="detailDraw"></span>
+      </div>
+      <div id="detailResult" class="big-result"></div>
+      <pre id="detailPrizeList" class="prizelist"></pre>
+      <div id="detailNotes" class="notes"></div>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>Data source: Google Sheets • Built with ❤️ • Deploy on GitHub Pages</small>
+    </div>
+  </footer>
+
+  <script>
+    // Replace with your actual Google Sheet ID (edit here or in app.js)
+    window.SHEET_ID = "REPLACE_WITH_YOUR_SHEET_ID";
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
